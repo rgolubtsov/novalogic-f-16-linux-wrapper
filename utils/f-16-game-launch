@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# utils/f-16-game-launch
+# =============================================================================
+# NovaLogic F-16 Multirole Fighter Playable Demo Linux Wrapper. Version 0.1.1
+# =============================================================================
+# Copyright (C) 2019-2025 Radislav (Radicchio) Golubtsov
+#
+# (See the LICENSE file at the top of the source tree.)
+#
+
+# Helper constants.
+declare -r EXIT_FAILURE=1 #    Failing exit status.
+declare -r EXIT_SUCCESS=0 # Successful exit status.
+
+echo "=== Launching the NovaLogic F-16 Multirole Fighter Playable Demo..."
+
+cd ~/.wine/drive_c/f16/
+~/wine/usr/bin/wine f16demo.exe > /dev/null 2>&1 &
+
+# If there is an error -- telling the OS about this.
+if [ $? -eq ${EXIT_FAILURE} ]; then
+    exit    ${EXIT_FAILURE}
+fi
+
+exit        ${EXIT_SUCCESS}
+
+# vim:set nu et ts=4 sw=4:
