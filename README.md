@@ -1,4 +1,4 @@
-# NovaLogic F-16 Multirole Fighter Playable Demo Linux Wrapper :small_blue_diamond: :airplane:
+# NovaLogic F-16 Multirole Fighter Playable Demo Linux Wrapper :small_orange_diamond: :wine_glass:
 
 Copy the game distribution's self-extracting InstallShield installation executable from a CD to the hard drive:
 
@@ -20,7 +20,11 @@ $
 $ eject
 ```
 
-Download the `wine` package along with all its necessary dependencies as Pacman proposes to do that, but do not install any of them including **Wine** itself (supposing the host OS is Arch Linux):
+---
+
+* **[Wrapper-Launcher](#wrapper-launcher)**
+
+1. Download the `wine` package along with all its necessary dependencies as Pacman proposes to do that, but do not install any of them including **Wine** itself (supposing the host OS is **Arch Linux**):
 
 ```
 $ sudo pacman -Syw wine
@@ -40,7 +44,7 @@ $ ls -al /var/cache/pacman/pkg/wine-10.1-1-x86_64.pkg.tar.zst
 -rw-r--r-- 1 root root 227293025 Feb  8 12:33 /var/cache/pacman/pkg/wine-10.1-1-x86_64.pkg.tar.zst
 ```
 
-Create a directory where to extract the `wine` package and do extract it there:
+2. Create a directory where to extract the `wine` package and do extract it there:
 
 ```
 $ mkdir wine && cd wine && tar -xf /var/cache/pacman/pkg/wine-10.1-1-x86_64.pkg.tar.zst
@@ -69,7 +73,7 @@ $ file ../novalogic/f16demo/f16demo.exe
 ../novalogic/f16demo/f16demo.exe: PE32 executable (GUI) Intel 80386, for MS Windows, InstallShield self-extracting archive, 5 sections
 ```
 
-From now on the use of **Wine** is required to launch the installation. During launching of **Wine** it may probably ask to install *Wine Mono* and *Wine Gecko* support libraries &ndash; discard them anyway and ignore any errors like the following ones, printed out to the console:
+3. From now on the use of **Wine** is required to launch the installation. During launching of **Wine** it may probably ask to install *Wine Mono* and *Wine Gecko* support libraries &mdash; discard them anyway and ignore any errors like the following ones, printed out to the console:
 
 ```
 $ ./usr/bin/wine ../novalogic/f16demo/f16demo.exe
@@ -134,7 +138,7 @@ drwxr-xr-x 8 <username> <usergroup>     4096 Jul 26  2019 ..
 -rw-r--r-- 1 <username> <usergroup>       84 Sep 29  1998 Update.wiz
 ```
 
-Since the main game executable `f16demo.exe` is in fact a Windows PE32 executable...
+4. Since the main game executable `f16demo.exe` is in fact a Windows PE32 executable...
 
 ```
 $ file f16demo.exe
@@ -152,4 +156,16 @@ $ ~/wine/usr/bin/wine f16demo.exe
 000f:fixme:service:scmdatabase_autostart_services Auto-start service L"NDIS" failed to start: 731
 ```
 
-Playing Well &ndash; Flying Smart ! :+1:
+## Wrapper-Launcher
+
+There is a special helper script in the `utils/` directory that launches the installed game in the background redirecting all the possible execution errors to `/dev/null`. It might be considered handy since it suppresses unwanted output to the console:
+
+```
+$ ./utils/f-16-game-launch
+=== Launching the NovaLogic F-16 Multirole Fighter Playable Demo...
+$
+```
+
+Selective screenshots from installation to playing to exiting the game can be observed in the `static/img/screenshots/` directory.
+
+Playing Well &mdash; Flying Smart ! :airplane:
