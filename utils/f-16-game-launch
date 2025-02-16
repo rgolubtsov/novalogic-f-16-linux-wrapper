@@ -3,6 +3,9 @@
 # =============================================================================
 # NovaLogic F-16 Multirole Fighter Playable Demo Linux Wrapper. Version 0.2.0
 # =============================================================================
+# This helper script launches the installed game in the background
+# redirecting all the possible execution errors to `/dev/null`.
+# =============================================================================
 # Copyright (C) 2019-2025 Radislav (Radicchio) Golubtsov
 #
 # (See the LICENSE file at the top of the source tree.)
