@@ -169,3 +169,7 @@ $
 Selective screenshots from installation to playing to exiting the game can be observed in the `static/img/screenshots/` directory.
 
 Playing Well &mdash; Flying Smart ! :airplane:
+
+---
+
+:floppy_disk:
